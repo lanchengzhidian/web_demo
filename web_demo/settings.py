@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'helloworld.apps.HelloworldConfig',
     'users.apps.UsersConfig',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [

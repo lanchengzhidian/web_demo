@@ -82,4 +82,3 @@ class LoginView(View):
             if remember != 'true':
                 request.session.set_expiry(0)
             return JsonResponse({'message': 'login success'})
-

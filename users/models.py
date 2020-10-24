@@ -1,6 +1,14 @@
 from django.db import models
 
 
+class Group(models.Model):
+    """用户组模型类"""
+    name = models.CharField(max_length=64, verbose_name='用户组名')
+
+    class Meta:
+        db_table = 'tb_groups'
+        verbose_name = '用户组表'
+
 # Create your models here.
 class User(models.Model):
     """用户模型类"""
@@ -13,6 +21,8 @@ class User(models.Model):
     age = models.IntegerField(default=18, verbose_name='年龄')
     # null=True：生成数据表时，数据表的对应字段允许为NULL
     mobile = models.CharField(max_length=11, null=True, verbose_name='手机号')
+    group = models.ForeignKey(Group, on_delete=models.SET_NULL,
+                              null=True, verbose_name='用户组')
 
     class Meta:
         # 指定迁移时生成的数据表的名称
